@@ -14,14 +14,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-[#1F4E79] shadow-md">
+      <nav className="bg-[#1F4E79] shadow-md relative z-50">
         <div className="container mx-auto p-4 flex justify-between items-center">
-          {/* Logo */}
-          <div className="w-[100px] lg:w-[200px]">
-            <Link to="/" className="text-3xl font-bold text-white">
-              EYESPEC
-            </Link>
-          </div>
+          <Link to="/" className="text-3xl font-bold text-white">
+            EYESPEC
+          </Link>
 
           {/* Mobile menu button */}
           <div className="flex items-center gap-4 lg:hidden">
@@ -34,103 +31,95 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden lg:flex flex-1 justify-center">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:block">
             <NavigationMenu>
               <NavigationMenuList className="gap-6">
                 <NavigationMenuItem>
-                  <Link to="/">
-                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full hover:bg-transparent focus:bg-transparent active:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-lg tracking-wide">
-                      HOME
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink 
+                    className="group inline-flex h-10 w-max items-center justify-center text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full hover:bg-transparent focus:bg-transparent active:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-lg tracking-wide"
+                    asChild
+                  >
+                    <Link to="/">HOME</Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="/Eyetest">
-                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full hover:bg-transparent focus:bg-transparent active:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-lg tracking-wide">
-                      EYETEST
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink 
+                    className="group inline-flex h-10 w-max items-center justify-center text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full hover:bg-transparent focus:bg-transparent active:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-lg tracking-wide"
+                    asChild
+                  >
+                    <Link to="/Eyetest">EYETEST</Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="/Faq">
-                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full hover:bg-transparent focus:bg-transparent active:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-lg tracking-wide">
-                      FAQ
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink 
+                    className="group inline-flex h-10 w-max items-center justify-center text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full hover:bg-transparent focus:bg-transparent active:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-lg tracking-wide"
+                    asChild
+                  >
+                    <Link to="/Faq">FAQ</Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="/About">
-                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full hover:bg-transparent focus:bg-transparent active:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-lg tracking-wide">
-                      ABOUT
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink 
+                    className="group inline-flex h-10 w-max items-center justify-center text-white relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full hover:bg-transparent focus:bg-transparent active:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent text-lg tracking-wide"
+                    asChild
+                  >
+                    <Link to="/About">ABOUT</Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
 
-          {/* Desktop Mode Toggle - Fixed Width */}
-          <div className="hidden lg:block w-[100px] lg:w-[200px] flex justify-end">
+          {/* Desktop Mode Toggle */}
+          <div className="hidden lg:block">
             <ModeToggle />
           </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation Sidebar */}
+      {/* Mobile Sidebar */}
       <div
-        className={`
-          fixed top-0 right-0 h-full w-64 bg-[#1F4E79] transform transition-transform duration-300 ease-in-out z-50
-          ${isOpen ? 'translate-x-0' : 'translate-x-full'}
-          lg:hidden
-        `}
+        className={`fixed top-0 right-0 h-full w-64 bg-[#1F4E79] transform transition-transform duration-300 ease-in-out z-40 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        } lg:hidden`}
       >
-        <div className="flex flex-col p-6">
-          <div className="flex justify-end mb-6">
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:text-white/80"
-            >
-              <X size={24} />
-            </button>
-          </div>
-          <div className="flex flex-col space-y-6">
-            <Link 
-              to="/" 
-              className="text-white text-lg hover:text-white/80 transition-colors" 
-              onClick={() => setIsOpen(false)}
-            >
-              HOME
-            </Link>
-            <Link 
-              to="/Eyetest" 
-              className="text-white text-lg hover:text-white/80 transition-colors" 
-              onClick={() => setIsOpen(false)}
-            >
-              EYETEST
-            </Link>
-            <Link 
-              to="/Faq" 
-              className="text-white text-lg hover:text-white/80 transition-colors" 
-              onClick={() => setIsOpen(false)}
-            >
-              FAQ
-            </Link>
-            <Link 
-              to="/About" 
-              className="text-white text-lg hover:text-white/80 transition-colors" 
-              onClick={() => setIsOpen(false)}
-            >
-              ABOUT
-            </Link>
-          </div>
+        <div className="flex flex-col p-6 pt-20">
+          <Link 
+            to="/" 
+            className="text-white text-lg py-3 hover:text-white/80 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            HOME
+          </Link>
+          <Link 
+            to="/Eyetest" 
+            className="text-white text-lg py-3 hover:text-white/80 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            EYETEST
+          </Link>
+          <Link 
+            to="/Faq" 
+            className="text-white text-lg py-3 hover:text-white/80 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            FAQ
+          </Link>
+          <Link 
+            to="/About" 
+            className="text-white text-lg py-3 hover:text-white/80 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+            ABOUT
+          </Link>
         </div>
       </div>
 
       {/* Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}

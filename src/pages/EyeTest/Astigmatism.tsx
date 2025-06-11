@@ -9,6 +9,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { X, Loader2 } from "lucide-react";
 import Confetti from "react-confetti";
+import PageTransition from "@/components/page-transition";
 
 // Import only one version of each image
 import astigmatismImage1 from "@/assets/AstigmatismTest1.png";
@@ -107,63 +108,65 @@ const Astigmatism: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto flex flex-col items-center min-h-[calc(100vh-4rem)] pt-6">
-      <h1 className="text-3xl font-bold mb-8 text-center">Astigmatism Test</h1>
-      
-      <Card className="w-full max-w-2xl mx-auto border-0">
-        <CardContent className="p-6 flex flex-col items-center">
-          <p className="text-xl mb-6 text-center">
-            {questions[currentQuestion].text}
-          </p>
-
-          <img
-            src={questions[currentQuestion].image}
-            alt={`Question ${currentQuestion + 1}`}
-            className="w-full max-w-md mb-8 dark:invert dark:hue-rotate-180"
-            loading="eager"
-          />
-
-          <div className="flex justify-center gap-4">
-            <Button onClick={() => handleAnswer(true)}>Yes</Button>
-            <Button onClick={() => handleAnswer(false)}>No</Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Dialog open={openModal} onOpenChange={resetTest}>
-        <DialogContent className="bg-background border-border">
-          <div className="absolute right-4 top-4">
-            <button
-              className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-              onClick={resetTest}
-            >
-              <X className="h-4 w-4 text-foreground" />
-              <span className="sr-only">Close</span>
-            </button>
-          </div>
-          <DialogHeader>
-            <DialogTitle className="text-foreground">Test Results</DialogTitle>
-          </DialogHeader>
-          <div className="p-4">
-            <p className="mb-2 text-foreground">
-              Your score is: {score} out of {questions.length}
+    <PageTransition>
+      <div className="container mx-auto flex flex-col items-center min-h-[calc(100vh-4rem)] pt-6">
+        <h1 className="text-3xl font-bold mb-8 text-center">Astigmatism Test</h1>
+        
+        <Card className="w-full max-w-2xl mx-auto border-0">
+          <CardContent className="p-6 flex flex-col items-center">
+            <p className="text-xl mb-6 text-center">
+              {questions[currentQuestion].text}
             </p>
-            <p className={`mb-4 font-bold ${color}`}>{message}</p>
-            <Button variant="default" onClick={resetTest}>
-              Take Test Again
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
 
-      {showConfetti && score >= 2 && (
-        <Confetti
-          width={window.innerWidth}
-          height={window.innerHeight}
-          style={{ position: "fixed", top: 0, left: 0, zIndex: 50 }}
-        />
-      )}
-    </div>
+            <img
+              src={questions[currentQuestion].image}
+              alt={`Question ${currentQuestion + 1}`}
+              className="w-full max-w-md mb-8 dark:invert dark:hue-rotate-180"
+              loading="eager"
+            />
+
+            <div className="flex justify-center gap-4">
+              <Button onClick={() => handleAnswer(true)}>Yes</Button>
+              <Button onClick={() => handleAnswer(false)}>No</Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Dialog open={openModal} onOpenChange={resetTest}>
+          <DialogContent className="bg-background border-border">
+            <div className="absolute right-4 top-4">
+              <button
+                className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+                onClick={resetTest}
+              >
+                <X className="h-4 w-4 text-foreground" />
+                <span className="sr-only">Close</span>
+              </button>
+            </div>
+            <DialogHeader>
+              <DialogTitle className="text-foreground">Test Results</DialogTitle>
+            </DialogHeader>
+            <div className="p-4">
+              <p className="mb-2 text-foreground">
+                Your score is: {score} out of {questions.length}
+              </p>
+              <p className={`mb-4 font-bold ${color}`}>{message}</p>
+              <Button variant="default" onClick={resetTest}>
+                Take Test Again
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {showConfetti && score >= 2 && (
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            style={{ position: "fixed", top: 0, left: 0, zIndex: 50 }}
+          />
+        )}
+      </div>
+    </PageTransition>
   );
 };
 

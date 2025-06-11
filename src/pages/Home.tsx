@@ -11,10 +11,10 @@ import animationData from "../card-ico/Animation-1749597597908.json"
 
 const Home = () => {
   return (
-    <div className="container mx-auto p-4 space-y-6">
-      <h1 className="text-4xl font-bold text-center pt-6">Welcome to EyeSpec</h1>
-      <p className="text-center mt-4 text-gray-600">
-        Your one-stop solution for eye care and specifications.
+    <div className="container mx-auto p-4 space-y-6 pb-10">
+      <h1 className="text-4xl font-bold text-center pt-6 pb-0 mb-2">Welcome to EyeSpec</h1>
+      <p className="text-center text-gray-600 pt-0 mt-0 pb-0">
+      Your trusted companion for comprehensive online vision screening and eye health awareness.
       </p>
 
       <Card className="w-full overflow-hidden">

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { Eye, BookOpen, Droplet, Circle, Palette } from "lucide-react" // Import icons
+import PageTransition from "@/components/page-transition"
 
 const EyeTest = () => {
   const tests = [
@@ -37,30 +38,32 @@ const EyeTest = () => {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <h1 className="text-4xl font-bold text-center mb-8 pt-6">Vision Tests</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 justify-items-center">
-        {tests.map((test, index) => (
-          <Link to={test.link} key={index} className="w-full max-w-[320px]">
-            <Card className="h-[550px] w-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group p-0">
-              <CardHeader className="bg-[#1F4E79] text-white p-8 relative m-0 rounded-t-lg">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#1F4E79] to-[#2C5282] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative z-10 flex flex-col items-center gap-4">
-                  {test.icon}
-                  <h2 className="text-xl font-bold text-center">{test.title}</h2>
-                </div>
-              </CardHeader>
-              <CardContent className="p-6 text-center">
-                <p className="text-lg leading-relaxed">{test.description}</p>
-                <div className="absolute bottom-4 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-[#1F4E79] font-medium">Click to start test →</span>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+    <PageTransition>
+      <div className="container mx-auto px-4 py-6 pb-10">
+        <h1 className="text-4xl font-bold text-center mb-8 pt-2">Vision Tests</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 justify-items-center">
+          {tests.map((test, index) => (
+            <Link to={test.link} key={index} className="w-full max-w-[320px]">
+              <Card className="h-[550px] w-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group p-0">
+                <CardHeader className="bg-[#1F4E79] text-white p-8 relative m-0 rounded-t-lg">
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#1F4E79] to-[#2C5282] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative z-10 flex flex-col items-center gap-4">
+                    {test.icon}
+                    <h2 className="text-xl font-bold text-center">{test.title}</h2>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6 text-center">
+                  <p className="text-lg leading-relaxed">{test.description}</p>
+                  <div className="absolute bottom-4 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="text-[#1F4E79] font-medium">Click to start test →</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </PageTransition>
   )
 }
 
