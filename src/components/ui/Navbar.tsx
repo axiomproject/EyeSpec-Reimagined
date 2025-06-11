@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="bg-[#1F4E79] shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center">
         <Link to="/" className="text-3xl font-bold text-white">
-          EyeSpec
+          EYESPEC
         </Link>
 
         {/* Mobile menu button */}

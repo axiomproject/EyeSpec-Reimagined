@@ -1,3 +1,28 @@
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+import React from "react"
+
+const technologies = [
+  {
+    name: "REACT",
+    description: "A JavaScript library for building user interfaces with reusable components",
+  },
+  {
+    name: "NODE",
+    description: "A runtime environment that executes JavaScript code outside a web browser",
+  },
+  {
+    name: "VITE",
+    description: "A modern frontend build tool that offers a faster and leaner development experience",
+  },
+  {
+    name: "TYPESCRIPT",
+    description: "A strongly typed programming language that builds on JavaScript",
+  },
+]
 
 const About = () => {
   return (
@@ -42,14 +67,27 @@ const About = () => {
 
         <section>
           <h2 className="text-2xl font-bold mb-4">Technology Used</h2>
-          <div className="flex gap-4 text-lg font-medium text-primary">
-            <span>REACT</span>
-            <span>|</span>
-            <span>NODE</span>
-            <span>|</span>
-            <span>VITE</span>
-            <span>|</span>
-            <span>TYPESCRIPT</span>
+          <div className="flex gap-4 items-center text-lg font-medium">
+            {technologies.map((tech, index) => (
+              <React.Fragment key={tech.name}>
+                <HoverCard>
+                  <HoverCardTrigger className="text-primary hover:text-primary/80 cursor-pointer">
+                    {tech.name}
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80">
+                    <div className="flex flex-col gap-2">
+                      <h4 className="font-semibold">{tech.name}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {tech.description}
+                      </p>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
+                {index < technologies.length - 1 && (
+                  <span className="text-muted-foreground">|</span>
+                )}
+              </React.Fragment>
+            ))}
           </div>
         </section>
       </div>
