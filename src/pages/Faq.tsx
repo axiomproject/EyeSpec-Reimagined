@@ -8,7 +8,7 @@ import {
 const FAQ = () => {
   return (
     <div className="container mx-auto p-4 max-w-3xl">
-      <h1 className="text-4xl font-bold text-center mb-8">
+      <h1 className="text-4xl font-bold text-center mb-8 pt-6">
         Frequently Asked Questions
       </h1>
       

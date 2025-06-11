@@ -12,7 +12,7 @@ import animationData from "../card-ico/Animation-1749597597908.json"
 const Home = () => {
   return (
     <div className="container mx-auto p-4 space-y-6">
-      <h1 className="text-4xl font-bold text-center">Welcome to EyeSpec</h1>
+      <h1 className="text-4xl font-bold text-center pt-6">Welcome to EyeSpec</h1>
       <p className="text-center mt-4 text-gray-600">
         Your one-stop solution for eye care and specifications.
       </p>
