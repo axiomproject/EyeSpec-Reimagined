@@ -94,7 +94,6 @@ npm run build
 - Dark/Light mode support
 - Smooth page transitions
 - Interactive UI components
-- Progress tracking
 - Real-time feedback
 - Accessibility focused
 - Mobile-friendly interface
