@@ -9,6 +9,7 @@ import NearVision from './pages/EyeTest/NearVision'
 import DistanceVision from './pages/EyeTest/DistanceVision'
 import DryEye from './pages/EyeTest/DryEye'
 import Astigmatism from './pages/EyeTest/Astigmatism'
+import ColorBlind from './pages/EyeTest/ColorBlind'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/EyeTest/DistanceVision" element={<DistanceVision />} />
               <Route path="/EyeTest/DryEye" element={<DryEye />} />
               <Route path="/EyeTest/Astigmatism" element={<Astigmatism />} />
+              <Route path="/EyeTest/ColorBlind" element={<ColorBlind />} />
               {/* ...other routes... */}
             </Routes>
           </main>

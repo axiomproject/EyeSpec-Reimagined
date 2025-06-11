@@ -31,7 +31,7 @@ const EyeTest = () => {
     {
       title: "COLOR BLINDNESS",
       description: "Assess your ability to distinguish between different colors. This test helps identify various types of color vision deficiencies that might affect your daily life.",
-      link: "/test/color",
+      link: "/EyeTest/ColorBlind",
       icon: <Palette className="w-8 h-8" />
     }
   ]

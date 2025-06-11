@@ -15,9 +15,12 @@ const Navbar = () => {
   return (
     <nav className="bg-[#1F4E79] shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center">
-        <Link to="/" className="text-3xl font-bold text-white">
-          EYESPEC
-        </Link>
+        {/* Logo */}
+        <div className="w-[100px] lg:w-[200px]">
+          <Link to="/" className="text-3xl font-bold text-white">
+            EYESPEC
+          </Link>
+        </div>
 
         {/* Mobile menu button */}
         <div className="flex items-center gap-4 lg:hidden">
@@ -30,8 +33,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:block">
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden lg:flex flex-1 justify-center">
           <NavigationMenu>
             <NavigationMenuList className="gap-6">
               <NavigationMenuItem>
@@ -66,6 +69,11 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
 
+        {/* Desktop Mode Toggle - Fixed Width */}
+        <div className="hidden lg:block w-[100px] lg:w-[200px] flex justify-end">
+          <ModeToggle />
+        </div>
+
         {/* Mobile Navigation */}
         <div className={`${isOpen ? 'flex' : 'hidden'} lg:hidden absolute top-[64px] left-0 right-0 flex-col bg-[#1F4E79] border-t border-white/10 p-4 space-y-4`}>
           <Link to="/" className="text-white text-lg" onClick={() => setIsOpen(false)}>
@@ -80,11 +88,6 @@ const Navbar = () => {
           <Link to="/About" className="text-white text-lg" onClick={() => setIsOpen(false)}>
             ABOUT
           </Link>
-        </div>
-
-        {/* Desktop Mode Toggle */}
-        <div className="hidden lg:block">
-          <ModeToggle />
         </div>
       </div>
     </nav>
