@@ -1,4 +1,12 @@
+<div align="center">
+
 # 👁️ EYESPEC
+
+<a href="https://eyespec-reimagined.netlify.app/" target="_blank">
+  <img src="https://img.shields.io/badge/Live_Demo-Visit_Site-2ea44f?style=for-the-badge" alt="Live Demo - Visit Site" />
+</a>
+
+</div>
 
 A comprehensive online vision screening platform built with React, TypeScript, and Vite. EyeSpec offers various eye tests to help users assess their visual health from the comfort of their home.
 
@@ -90,10 +98,6 @@ npm run build
 - Real-time feedback
 - Accessibility focused
 - Mobile-friendly interface
-
-## 👨‍💻 Developer
-
-Developed by Jc Vergara
 
 ## 📄 License
 
