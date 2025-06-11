@@ -1,4 +1,3 @@
-import React from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Link } from "react-router-dom"
 import { Eye, BookOpen, Droplet, Circle, Palette } from "lucide-react" // Import icons
