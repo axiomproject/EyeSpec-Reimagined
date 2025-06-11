@@ -69,7 +69,7 @@ The tests provided on EyeSpec are for screening purposes only and are not intend
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/eyespec.git
+git clone https://github.com/axiomproject/eyespec.git
 ```
 
 2. Install dependencies:
