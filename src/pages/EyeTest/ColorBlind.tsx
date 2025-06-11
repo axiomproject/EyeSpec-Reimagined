@@ -142,7 +142,7 @@ const ColorBlind: React.FC = () => {
               placeholder="Enter the number you see"
               value={currentAnswer}
               onChange={(e) => setCurrentAnswer(e.target.value)}
-              className="w-48 text-center"
+              className="w-49 text-center"
               maxLength={2}
             />
           </div>
